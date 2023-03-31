@@ -136,10 +136,10 @@ export default async function createGate({
 
   const segmentConditions = segment.map((address) => {
     return {
-      name: `Gate for ${address.slice(0, 5)}`, // Replace with your gate name
-      conditionsDescription: "Any token", // Replace with your condition description
+      name:  name, //`Gate for ${address}`, // Replace with your gate name
+      conditionsDescription: "Any token", 
       contractAddress: address,
-      imageUrl: "https://placekitten.com/g/200/200", // Replace with token collection image URL
+      imageUrl: "https://i.seadn.io/gcs/files/00fd38006a28bf334a4f63dd97aacdf8.png", // Replace with token collection image URL
     };
   });
 

@@ -17,9 +17,11 @@ const _App = () => {
       evaluateGate(wallet);
     },
   });
-
   const { requirements, reaction } = getGate();
-
+  console.log("isLocked: " + isLocked);
+  console.log("unlockingTokens: " + JSON.stringify(unlockingTokens));
+  console.log("requirements: " + JSON.stringify(requirements));
+  
   return (
     <Tokengate
       isConnected={Boolean(wallet)}

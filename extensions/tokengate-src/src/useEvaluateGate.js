@@ -4,7 +4,7 @@ import {
 } from "@shopify/gate-context-client";
 
 // Set this to the ngrok url that is generated when you run the server
-export const host = "YOUR_NGROK_URL";
+export const host = "https://5b1d-2a02-6b64-e1ae-0-d533-bab3-d000-f891.eu.ngrok.io";
 
 if (host == "YOUR_NGROK_URL") {
   console.error(`

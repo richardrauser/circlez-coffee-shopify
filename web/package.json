@@ -17,7 +17,7 @@
     "cross-env": "^7.0.3",
     "serve-static": "^1.14.1",
     "sqlite3": "^5.1.4",
-    "web3": "^1.8.1"
+    "web3": "^1.9.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15",

@@ -1,6 +1,6 @@
 import { myAppMetafieldNamespace } from "./constants.js";
 
-const YOUR_FUNCTION_ID = "YOUR_FUNCTION_ID";
+const YOUR_FUNCTION_ID = "01GWRSKQYKTAADM5CT8P5T5VV7";
 console.log(`Loaded function id ${YOUR_FUNCTION_ID}`);
 
 if (YOUR_FUNCTION_ID == "YOUR_FUNCTION_ID") {

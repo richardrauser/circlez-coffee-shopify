@@ -20,6 +20,7 @@ export function configurePublicApi(app) {
     // Evaluate the gate, message, and signature
     const { shopDomain, productGid, address, message, signature, gateConfigurationGid } = req.body;
 
+    console.log("CCDEBUG: VERIFYING SIGNATURE..");
     // Verify signature
     const recoveredAddress = web3.eth.accounts.recover(message, signature);
     if (recoveredAddress !== address) {
@@ -27,14 +28,20 @@ export function configurePublicApi(app) {
       return;
     }
 
+    console.log("CCDEBUG: VERIFIED SIGNATURE..");
+
     // Retrieve relevant contract addresses from gates
     const requiredContractAddresses = await getContractAddressesFromGate({shopDomain, productGid});
+
+    console.log("required contract address: " + requiredContractAddresses);
 
     // Lookup tokens
     const unlockingTokens = await retrieveUnlockingTokens(
       address,
       requiredContractAddresses
     );
+
+    console.log("UNLOCKING TOKENS: " + JSON.stringify(unlockingTokens));
     if (unlockingTokens.length === 0) {
       res.status(403).send("No unlocking tokens");
       return;
@@ -62,13 +69,16 @@ function getHmac(payload) {
 
 function retrieveUnlockingTokens(address, contractAddresses) {
   // This could be a lookup against a node or a 3rd party service like Alchemy
+  console.log("address: " + address);
+  console.log("contract address: " + contractAddresses);
+  
   return Promise.resolve([
     {
-      name: "CryptoPunk #1719",
+      name: "CryptoSkull",
       imageUrl:
-        "https://storage.cloud.google.com/shopify-blockchain-development/images/punk1719.png",
-      collectionName: "CryptoPunks",
-      collectionAddress: "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB",
+        "https://i.seadn.io/gcs/files/00fd38006a28bf334a4f63dd97aacdf8.png",
+      collectionName: "CryptoSkulls",
+      collectionAddress: "0xc1Caf0C19A8AC28c41Fe59bA6c754e4b9bd54dE9",
     },
   ]);
 }
