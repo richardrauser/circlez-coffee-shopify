@@ -139,7 +139,7 @@ export default async function createGate({
       name:  name, //`Gate for ${address}`, // Replace with your gate name
       conditionsDescription: "Any token", 
       contractAddress: address,
-      imageUrl: "https://i.seadn.io/gcs/files/00fd38006a28bf334a4f63dd97aacdf8.png", // Replace with token collection image URL
+      imageUrl: "https://circlez-coffee.richardrauser.repl.co/CirclezCoffeeMembershipMainLogo.png",
     };
   });
 

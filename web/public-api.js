@@ -67,18 +67,28 @@ function getHmac(payload) {
   };
 }
 
-function retrieveUnlockingTokens(address, contractAddresses) {
+async function retrieveUnlockingTokens(address, contractAddresses) {
   // This could be a lookup against a node or a 3rd party service like Alchemy
   console.log("address: " + address);
   console.log("contract address: " + contractAddresses);
+
+  const response = await fetch(`https://circlez-coffee.richardrauser.repl.co/api/member/0xBC10a3aE909B1b94f4C3E39607aD19D386dCe32a`, {
+    method: "GET",
+  });
+  const json = await response.json();
+
+  const id = json.metadata.id ? "#" + json.metadata.id : ""
+  const image = json.metadata.image ?? "https://circlez-coffee.richardrauser.repl.co/CirclezCoffeeMembershipMainLogo.png";
+
+  console.log("ID: " + image);
+  console.log("IMAGE: " + image);
   
   return Promise.resolve([
     {
-      name: "CryptoSkull",
-      imageUrl:
-        "https://i.seadn.io/gcs/files/00fd38006a28bf334a4f63dd97aacdf8.png",
-      collectionName: "CryptoSkulls",
-      collectionAddress: "0xc1Caf0C19A8AC28c41Fe59bA6c754e4b9bd54dE9",
+      name: "Circlez Coffee Member " + id,
+      imageUrl: image,
+      collectionName: "Circlez Coffee Membership",
+      collectionAddress: "0x03E38414bb20ecA7A23AFBa8Ab42374c0d4b31F1",
     },
   ]);
 }
