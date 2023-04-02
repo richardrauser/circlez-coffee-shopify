@@ -67,28 +67,42 @@ function getHmac(payload) {
   };
 }
 
-async function retrieveUnlockingTokens(address, contractAddresses) {
+async function retrieveUnlockingTokens(address, contractAddress) {
   // This could be a lookup against a node or a 3rd party service like Alchemy
   console.log("address: " + address);
-  console.log("contract address: " + contractAddresses);
+  console.log("contract address: " + contractAddress);
 
-  const response = await fetch(`https://circlez-coffee.richardrauser.repl.co/api/member/0xBC10a3aE909B1b94f4C3E39607aD19D386dCe32a`, {
-    method: "GET",
-  });
-  const json = await response.json();
+  var name;
+  var image;
+  var collectionName;
 
-  const id = json.metadata.id ? "#" + json.metadata.id : ""
-  const image = json.metadata.image ?? "https://circlez-coffee.richardrauser.repl.co/CirclezCoffeeMembershipMainLogo.png";
+
+  if (contractAddress == "0x03E38414bb20ecA7A23AFBa8Ab42374c0d4b31F1") {
+    const response = await fetch(`https://circlez-coffee.richardrauser.repl.co/api/member/0xBC10a3aE909B1b94f4C3E39607aD19D386dCe32a`, {
+      method: "GET",
+    });
+    const json = await response.json();
+  
+    const id = json.metadata.id ? "#" + json.metadata.id : "";
+    name = "Circlez Coffee Member " + id;
+    image = json.metadata.image ?? "https://circlez-coffee.richardrauser.repl.co/CirclezCoffeeMembershipMainLogo.png";
+    collectionName = "Circlez Coffee Membership";
+  } else if (contractAddress == "0x22B3b03Be23086d7C717f4f6A9DA49BaC8849c62") {
+    name = "First Purchase Completed";
+    image = "https://circlez-coffee.richardrauser.repl.co/CirclezCoffeeFirstPurchase.png";
+    collectionName = "First Purchase";
+  }
+
 
   console.log("ID: " + image);
   console.log("IMAGE: " + image);
   
   return Promise.resolve([
     {
-      name: "Circlez Coffee Member " + id,
+      name: name,
       imageUrl: image,
-      collectionName: "Circlez Coffee Membership",
-      collectionAddress: "0x03E38414bb20ecA7A23AFBa8Ab42374c0d4b31F1",
+      collectionName: collectionName,
+      collectionAddress: address,
     },
   ]);
 }
