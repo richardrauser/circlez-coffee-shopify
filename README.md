@@ -5,6 +5,9 @@ This is a submission for the [Shopify x Thirdweb Replit Bounty](https://replit.c
 This repo includes the Shopify app and extensions that form part of the demo. It was forked from the [tokengating example app](https://github.com/Shopify/tokengating-example-app), and includes various changes to support thie use case of the bounty. It is meant to be used with the Circlez Coffee website and frontend, which [can be found on Replit](https://replit.com/@RichardRauser/Circlez-Coffee-Website?v=1) .
 The Circlez Website allows users to claim membership and unlock rewards by completing achievements. These rewards include discounts on coffee, swag, and an airdrop of an original track by the Circlez Coffee house band, LadyBean and the Circlez! These reward are unlocked by making purchases on the Shopify storefront.
 
+You can see the Circlez Coffee website running [here](https://circlez-coffee.myshopify.com/).
+You can see the Circlez Coffee Shopify storefront [here](https://circlez-coffee.myshopify.com/).
+
 ## Requirements
 
 * This app requires a new `gates` object in Liquid that is only as early access. Please contact blockchain-partners@shopify.com with your `.myshopify.com` shop domain for access.
