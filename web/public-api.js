@@ -20,20 +20,17 @@ export function configurePublicApi(app) {
     // Evaluate the gate, message, and signature
     const { shopDomain, productGid, address, message, signature, gateConfigurationGid } = req.body;
 
-    console.log("CCDEBUG: VERIFYING SIGNATURE..");
     // Verify signature
     const recoveredAddress = web3.eth.accounts.recover(message, signature);
     if (recoveredAddress !== address) {
-      res.status(403).send("Invalid signature");
+      res.status(403).send("Invalid HMAC signature.");
       return;
     }
 
-    console.log("CCDEBUG: VERIFIED SIGNATURE..");
+    console.log("HMAC signature verified.");
 
     // Retrieve relevant contract addresses from gates
     const requiredContractAddresses = await getContractAddressesFromGate({shopDomain, productGid});
-
-    console.log("required contract address: " + requiredContractAddresses);
 
     // Lookup tokens
     const unlockingTokens = await retrieveUnlockingTokens(
@@ -41,7 +38,6 @@ export function configurePublicApi(app) {
       requiredContractAddresses
     );
 
-    console.log("UNLOCKING TOKENS: " + JSON.stringify(unlockingTokens));
     if (unlockingTokens.length === 0) {
       res.status(403).send("No unlocking tokens");
       return;
@@ -78,7 +74,7 @@ async function retrieveUnlockingTokens(address, contractAddress) {
 
 
   if (contractAddress == "0x03E38414bb20ecA7A23AFBa8Ab42374c0d4b31F1") {
-    const response = await fetch(`https://circlez-coffee.richardrauser.repl.co/api/member/0xBC10a3aE909B1b94f4C3E39607aD19D386dCe32a`, {
+    const response = await fetch(`https://circlez-coffee.richardrauser.repl.co/api/member/${address}`, {
       method: "GET",
     });
     const json = await response.json();
