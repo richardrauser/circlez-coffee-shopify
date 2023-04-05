@@ -8,9 +8,10 @@ The Circlez Website allows users to claim membership and unlock rewards by compl
 You can see the Circlez Coffee website running [here](https://circlez-coffee.myshopify.com/).
 You can see the Circlez Coffee Shopify storefront [here](https://circlez-coffee.myshopify.com/).
 
-## Requirements
+## Notes
 
 * This app requires a new `gates` object in Liquid that is only as early access. Please contact blockchain-partners@shopify.com with your `.myshopify.com` shop domain for access.
+* This app has only been configured for locally running and further configuration will be needed to support running remotely (e.g. in fly.io or Heroku)
 
 ### Setup 
 
