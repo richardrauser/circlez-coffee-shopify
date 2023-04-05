@@ -2,7 +2,7 @@
 
 This is a submission for the [Shopify x Thirdweb Replit Bounty](https://replit.com/bounties/@thirdwebShopify/build-a-shopify-bloc). It is a fully formed, functional demo of a gamified membership and rewards scheme built on the blockchain for a fictional coffee brand, Circlez Coffee. It demonstrates the technology of Replit, Shopify and Thirdweb, including Shopify Apps, Blockchain components, token gating, Thirdweb Minting and CommerceKit, along with their node packages and APIs.
 
-This repo includes the Shopify app and extensions that form part of the demo. It was forked from the [tokengating example app](https://github.com/Shopify/tokengating-example-app), and includes various changes to support thie use case of the bounty. It is meant to be used with the Circlez Coffee website and backend, which [can be found on Replit](https://replit.com/@RichardRauser/Circlez-Coffee-Website?v=1). You can also find the source for the Circlez Coffee website and backend [in Github](https://github.com/richardrauser/Circlez-Coffee-Web). (Note that the repl is right up against the storage limit.. this can usually be mitigated by deleting the next.js cache in /.next/cache)
+This repo includes the Shopify app and extensions that form part of the demo. It was forked from the [tokengating example app](https://github.com/Shopify/tokengating-example-app), and includes various changes to support thie use case of the bounty. It is meant to be used with the Circlez Coffee website and backend, which [can be found on Replit](https://replit.com/@RichardRauser/Circlez-Coffee). You can also find the source for the Circlez Coffee website and backend [in Github](https://github.com/richardrauser/Circlez-Coffee-Web). (Note that the repl is right up against the storage limit.. this can usually be mitigated by deleting the next.js cache in /.next/cache)
 The Circlez Website allows users to claim membership and unlock rewards by completing achievements. These rewards include discounts on coffee, swag, and an airdrop of an original track by the Circlez Coffee house band, LadyBean and the Circlez! These reward are unlocked by making purchases on the Shopify storefront.
 
 You can see the Circlez Coffee website running [here](https://circlez-coffee.myshopify.com/).
@@ -32,7 +32,8 @@ You can see the Circlez Coffee Shopify storefront [here](https://circlez-coffee.
 1. Visit the [Thirdweb Contracts dashboard](https://thirdweb.com/dashboard/contracts)
 1. Hit the Deploy button, and create a new NFT Collection smart contract for your Membership NFT. 
 1. Hit the Deploy button and create new Edition smart contracts for whatever achievements you'd like.
-1. Take note of the contract addresses. You'll need to put them into your fork of the the [Circlez Coffee website repl](https://replit.com/@RichardRauser/Circlez-Coffee-Website?v=1).
+1. Take note of the contract addresses. You'll need to put them into your fork of the the [Circlez Coffee website repl](https://replit.com/@RichardRauser/Circlez-Coffee).
+2. You will take note of the minter private key, as it will need to go into the Repl as well as Secret. (further instructions in the Repl)
 
 ### Setup some token gates
 
@@ -41,7 +42,7 @@ You can see the Circlez Coffee Shopify storefront [here](https://circlez-coffee.
 1. Now you can visit your Online Store by visiting the URL logged in your terminal under "Preview your theme app extension". Go to the gated product and connect your wallet to unlock the gate. Add the item to your cart. If you view the cart details, you will see that the discount you created has been applied.
 1. Your app has attested that any connected wallet will unlock the gate. This attestation is a cart attribute with the key `_shopify_gate_context` and can be viewed at the URL: `your-shop-domain.myshopify.com/cart.json`. As app developers, you have complete control over the gate requirements and the logic involved in determining if a gate should be unlocked.
 
-- Now you're read to fork the [Circlez Coffee website repl](https://replit.com/@RichardRauser/Circlez-Coffee-Website?v=1) and follow the steps here.
+- Now you're read to fork the [Circlez Coffee website repl](https://replit.com/@RichardRauser/Circlez-Coffee) and follow the steps here.
 
 ## More Resources
 - [Read more about tokengating](https://shopify.dev/apps/blockchain/tokengating)
